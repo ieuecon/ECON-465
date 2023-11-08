@@ -42,54 +42,60 @@ suppressPackageStartupMessages({
 
 ```
 
-## Text Mining
-### Case Study: Trump Tweets
+::: fragment
+
+::: {style="font-size: 0.75em"}
 
 During the 2016 US presidential election, then candidate Donald J. Trump used his twitter account as a way to communicate with potential voters.
 
-On August 6, 2016, Todd Vaziri tweeted1 about Trump that “Every non-hyperbolic tweet is from iPhone (his staff). Every hyperbolic tweet is from Android (from him).” 
+<br>
 
-Data scientist David Robinson conducted an analysis to determine if data supported this assertion. Here, we go through David’s analysis to learn some of the basics of text mining.
+On August 6, 2016, Todd Vaziri tweeted1 about Trump that "Every non-hyperbolic tweet is from iPhone (his staff). Every hyperbolic tweet is from Android (from him)."
 
-## Text Mining 
+<br>
+
+Data scientist David Robinson conducted an analysis to determine if data supported this assertion. Here, we go through David's analysis to learn some of the basics of text mining.
+
+:::
+:::
+
+## Text Mining
+
 ### Case Study: Trump Tweets
-
+::: fragment
+::: {style="font-size: 0.75em"}
 We are going to use the data frame called `trump_tweets`.
 
 You can download tweets from twitter using `rtweet` package. But we will use an already compiled data set.
 
 See what `trump_tweets` looks like.
-
-::: {.fragment}
-
+:::
+:::
+::: fragment
 ```{r}
 #| echo: true
 #| eval: true
 head(trump_tweets) |> as_tibble()
 ```
-::: 
+:::
 
-## Text Mining
-### Case Study: Trump Tweets
-::: {.fragment}
-
+::: fragment
 ```{r}
 #| echo: true
 #| eval: true
 trump_tweets$text[16413]
 ```
-::: 
-
+:::
 
 ## Text Mining
+
 ### Case Study: Trump Tweets
 
 How many tweets are there?
 
 Let's look at tweets by source:
 
-::: {.fragment}
-
+::: fragment
 ```{r}
 #| echo: true
 #| eval: true
@@ -98,17 +104,19 @@ trump_tweets |>
   arrange(desc(n)) |>
   head(5)
 ```
-::: 
-
+:::
 
 ## Text Mining
+
 ### Case Study: Trump Tweets
-::: {.fragment}
-We are interested in what happened during the campaign: 
+
+::: fragment
+We are interested in what happened during the campaign:
+
 ```{r}
 #| echo: true
 #| eval: true
-#| code-line-numbers: "1-2|3-5|6|7|8|9"
+#| code-line-numbers: "1-2|3-5|6-8|9"
 campaign_tweets <- trump_tweets |> 
   extract(source, "source", "Twitter for (.*)") |>
   filter(source %in% c("Android", "iPhone") & 
@@ -119,13 +127,15 @@ campaign_tweets <- trump_tweets |>
   as_tibble()
 campaign_tweets
 ```
-::: 
+:::
 
 ## Text Mining
+
 ### Case Study: Trump Tweets
 
-::: {.fragment}
-We are interested in what happened during the campaign: 
+::: fragment
+We are interested in what happened during the campaign:
+
 ```{r}
 #| echo: true
 #| eval: true
@@ -143,15 +153,14 @@ campaign_tweets |>
   scale_y_continuous(labels = percent_format()) + 
   labs(x = "Hour of day (EST", y = "% of tweets", color ="") + theme_light()
 ```
-::: 
+:::
 
 ## Text Mining
+
 ### Case Study: Trump Tweets
 
-::: {.fragment}
-The tidytext package helps us convert free form text into a tidy table.
-In this package text is broken down into tokens and then tokens are analyzed.
-Here is a simple example:
+::: fragment
+The tidytext package helps us convert free form text into a tidy table. In this package text is broken down into tokens and then tokens are analyzed. Here is a simple example:
 
 ```{r}
 #| echo: true
@@ -160,7 +169,7 @@ install.packages("tidytext")
 ```
 :::
 
-::: {.fragment}
+::: fragment
 ```{r}
 #| echo: true
 #| eval: true
@@ -170,44 +179,46 @@ poem <- c("Roses are red,", "Violets are blue,",
 example <- tibble(line = c(1, 2, 3, 4),
                       text = poem)
 ```
-::: 
-
-## Text Mining
-### Case Study: Trump Tweets
-
-::: {.fragment}
-What does ”example” look like ?
-
-We make a table of words. Here the table is of lines of a poem. 
 :::
 
-::: {.fragment}
+## Text Mining
 
+### Case Study: Trump Tweets
+
+::: fragment
+What does "example" look like ?
+
+We make a table of words. Here the table is of lines of a poem.
+:::
+
+::: fragment
 ```{r}
 #| echo: true
 #| eval: true
 example
 ```
-::: 
+:::
 
 ## Text Mining
+
 ### Case Study: Trump Tweets
+
 We will next break the lines down into words.
 
-::: {.fragment}
+::: fragment
 ```{r}
 #| echo: true
 #| eval: true
 example |> unnest_tokens(word, text)
 ```
-::: 
+:::
 
 ## Text Mining
+
 ### Case Study: Trump Tweets
 
-::: {.fragment}
-
-Now let’s look at an example from the tweets. 
+::: fragment
+Now let's look at an example from the tweets.
 
 ```{r}
 #| echo: true
@@ -215,8 +226,9 @@ Now let’s look at an example from the tweets.
 i <- 3008
 campaign_tweets$text[i] |> str_wrap(width = 65) |> cat()
 ```
+:::
 
-
+::: fragment
 ```{r}
 #| echo: true
 #| eval: true
@@ -224,15 +236,13 @@ campaign_tweets[i,] |>
   unnest_tokens(word, text) |>
   pull(word) 
 ```
-
-::: 
-
+:::
 
 ## Text Mining
+
 ### Case Study: Trump Tweets
 
-::: {.fragment}
-
+::: fragment
 Let's remove some garbage.
 
 ```{r}
@@ -244,13 +254,13 @@ campaign_tweets[i,] |>
   unnest_tokens(word, text) |>
   pull(word)
 ```
-
 :::
 
 ## Text Mining
+
 ### Case Study: Trump Tweets
 
-::: {.fragment}
+::: fragment
 Now we are ready to extract the words for all our tweets.
 
 ```{r}
@@ -261,20 +271,17 @@ tweet_words <- campaign_tweets |>
   unnest_tokens(word, text)
 tweet_words
 ```
-
 :::
 
 ## Text Mining
+
 ### Case Study: Trump Tweets
 
-::: {.fragment}
-
-Let ’ s look at the most common words .
-
+::: fragment
+Let ' s look at the most common words .
 :::
 
-::: {.fragment}
-
+::: fragment
 ```{r}
 #| echo: true
 #| eval: true
@@ -284,17 +291,15 @@ tweet_words |>
 ```
 :::
 
-::: {.fragment}
-
+::: fragment
 Not surprising . Totally uninformative .
-
 :::
 
 ## Text Mining
+
 ### Case Study: Trump Tweets
 
-::: {.fragment}
-
+::: fragment
 `stop_words` has the most common words in the English language so we can ignore these.
 
 ```{r}
@@ -302,81 +307,307 @@ Not surprising . Totally uninformative .
 #| eval: true
 stop_words
 ```
-
 :::
 
 ## Text Mining {.scrollable}
-### Case Study: Trump Tweets 
 
-::: {.fragment}
-::: {style="font-size: 0.7em"}
+### Case Study: Trump Tweets
 
-If we filter out rows representing stop words with
-`filter(!word %in% stop_words$word)`:
+::: fragment
+::: {style="font-size: 0.75em"}
+If we filter out rows representing stop words with `filter(!word %in% stop_words$word)`:
+:::
 :::
 
-:::
-
-::: {.fragment}
-
+::: fragment
 ```{r}
 #| echo: true
 #| eval: true
+#| code-line-numbers: "1|2-4"
 tweet_words <- campaign_tweets |> 
   mutate(text = str_replace_all(text, links, ""))  |>
   unnest_tokens(word, text) |>
   filter(!word %in% stop_words$word ) 
 
 ```
-
 :::
-::: {.fragment}
-::: {style="font-size: 0.6em"}
+
+::: fragment
+::: {style="font-size: 0.75em"}
 We end up with a much more informative set of top 10 tweeted words:
 :::
 :::
-::: {.fragment}
 
+::: fragment
 ```{r}
 #| echo: true
 #| eval: true
+#| code-line-numbers: "1|2-5"
 tweet_words |> 
   count(word) |>
   top_n(10, n) |>
   mutate(word = reorder(word, n)) |>
   arrange(desc(n)) 
 ```
+:::
 
+## Text Mining {.scrollable}
+
+### Case Study: Trump Tweets
+
+::: fragment
+::: {style="font-size: 0.75em"}
+
+These are a lot more informative.
+But still if we look at the word list, there are uninformative words. For example dates. Also unwanted characters like `’` attached to a word.
+It was the first word in a quote. Let’s remove these.
+:::
+```{r}
+#| echo: true
+#| eval: true
+#| code-line-numbers: "1|2-6"
+tweet_words <- campaign_tweets |> 
+  mutate(text = str_replace_all(text, links, ""))  |>
+  unnest_tokens(word, text) |>
+  filter(!word %in% stop_words$word &
+           !str_detect(word, "^\\d+$")) |>
+  mutate(word = str_replace(word, "^'", ""))
+```
+:::
+
+
+::: fragment
+::: {style="font-size: 0.75em"}
+
+Now let’s compare the most used words in tweets from Android or iphone.
+:::
+```{r}
+#| echo: true
+#| eval: true
+#| code-line-numbers: "1|2-5"
+android_vs_iphone <- tweet_words |>
+  count(word, source) |>
+  pivot_wider(names_from = "source", values_from = "n", values_fill = 0) |>
+  mutate(p_a = Android / sum(Android), p_i = iPhone / sum(iPhone),
+         percent_diff = (p_a - p_i) / ((p_a + p_i)/2) * 100)
+```
+
+
+:::
+
+## Text Mining {.scrollable}
+
+### Case Study: Trump Tweets
+
+::: fragment
+
+For words appearing at least 100 times in total, here are the highest percent differences;
+
+:::
+::: fragment
+:::: {.columns}
+
+::: {.column width="47%"}
+::: {style="font-size: 0.85em"}
+Android:
+
+
+```{r}
+#| echo: true
+#| eval: true
+android_vs_iphone |> filter(Android + iPhone >= 100) |>
+  arrange(desc(percent_diff))
+```
+:::
 :::
 
 
 
+::: {.column width="53%"}
+::: {style="font-size: 0.85em"}
+
+iPhone:
+
+```{r}
+#| echo: true
+#| eval: true
+
+android_vs_iphone |> filter(Android + iPhone >= 100) |> 
+  arrange(percent_diff)
+```
+:::
+:::
+::::
+:::
+
+## Text Mining {.scrollable}
+
+### Case Study: Trump Tweets
+
+::: fragment
+::: {style="font-size: 0.75em"}
+
+Some words reflect negative or positive sentiments.
+
+:::
+:::
+
+::: fragment
 
 
+```{r}
+#| echo: true
+#| eval: false
+install.packages('tidytext')
+install.packages('textdata')
+```
 
 
+:::
+
+::: fragment
 
 
+```{r}
+#| echo: true
+#| eval: true
+library(tidytext)
+library(textdata)
+```
 
 
+:::
 
+## Text Mining {.scrollable}
+### Case Study: Trump Tweets
 
+::: fragment
+:::: {.columns}
 
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+get_sentiments("bing")
+```
+:::
 
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+get_sentiments("afinn")
+```
+:::
+::::
+:::
 
+## Text Mining {.scrollable}
+### Case Study: Trump Tweets
 
+::: fragment
+:::: {.columns}
 
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+get_sentiments("loughran") |> count(sentiment)
+```
+:::
 
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+get_sentiments("nrc") |> count(sentiment)
+```
+:::
+::::
+:::
 
+## Text Mining {.scrollable}
 
+### Case Study: Trump Tweets
 
+::: fragment
 
+For our analysis, we are interested in exploring the different sentiments of each tweet so we will use the `nrc` lexicon:
 
+:::
+::: fragment
 
+```{r}
+#| echo: true
+#| eval: true
+nrc <- get_sentiments("nrc") |>
+  select(word, sentiment)
+```
 
+:::
+::: fragment
 
+We will only keep words associated with a sentiment in the tweets.
 
+:::
 
+::: fragment
 
+```{r}
+#| echo: true
+#| eval: true
+tweet_words |> inner_join(nrc, by = "word", relationship = "many-to-many") |> 
+  select(source, word, sentiment) |> 
+  sample_n(5)
+```
 
+:::
+
+## Text Mining {.scrollable}
+
+### Case Study: Trump Tweets
+
+::: fragment
+
+Then count them:
+
+:::
+::: fragment
+
+```{r}
+#| echo: true
+#| eval: true
+sentiment_counts <- tweet_words |>
+  left_join(nrc, by = "word", relationship = "many-to-many") |>
+  count(source, sentiment) |>
+  pivot_wider(names_from = "source", values_from = "n") |>
+  mutate(sentiment = replace_na(sentiment, replace = "none"))
+sentiment_counts
+```
+
+:::
+
+## Text Mining {.scrollable}
+
+### Case Study: Trump Tweets
+
+::: fragment
+
+Compare the different sentiments in the tweets from different sources.
+
+:::
+
+::: fragment
+
+```{r}
+#| echo: true
+#| eval: true
+sentiment_counts |>
+  mutate(p_a = Android / sum(Android) , 
+         p_i = iPhone / sum(iPhone), 
+         percent_diff = (p_a - p_i) / ((p_a + p_i)/2) * 100) |>
+  arrange(desc(percent_diff))
+```
+
+:::
 
