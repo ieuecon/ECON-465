@@ -23,8 +23,8 @@ format:
 editor_options: 
   chunk_output_type: console
 ---
-
-## Packages
+## Case Study: Trump Tweets 
+#### Packages {.scrollable}
 
 First things first: we need to load the necessary libraries
 
@@ -43,9 +43,7 @@ suppressPackageStartupMessages({
 ```
 
 ::: fragment
-
 ::: {style="font-size: 0.75em"}
-
 During the 2016 US presidential election, then candidate Donald J. Trump used his twitter account as a way to communicate with potential voters.
 
 <br>
@@ -55,13 +53,13 @@ On August 6, 2016, Todd Vaziri tweeted1 about Trump that "Every non-hyperbolic t
 <br>
 
 Data scientist David Robinson conducted an analysis to determine if data supported this assertion. Here, we go through David's analysis to learn some of the basics of text mining.
-
 :::
 :::
 
-## Text Mining
+## Case Study: Trump Tweets
+#### Text Mining
 
-### Case Study: Trump Tweets
+
 ::: fragment
 ::: {style="font-size: 0.75em"}
 We are going to use the data frame called `trump_tweets`.
@@ -71,6 +69,7 @@ You can download tweets from twitter using `rtweet` package. But we will use an 
 See what `trump_tweets` looks like.
 :::
 :::
+
 ::: fragment
 ```{r}
 #| echo: true
@@ -87,14 +86,16 @@ trump_tweets$text[16413]
 ```
 :::
 
-## Text Mining
 
-### Case Study: Trump Tweets
 
+## Case Study: Trump Tweets
+#### Text Mining
+
+::: fragment
 How many tweets are there?
 
 Let's look at tweets by source:
-
+:::
 ::: fragment
 ```{r}
 #| echo: true
@@ -106,9 +107,9 @@ trump_tweets |>
 ```
 :::
 
-## Text Mining
 
-### Case Study: Trump Tweets
+## Case Study: Trump Tweets
+#### Text Mining
 
 ::: fragment
 We are interested in what happened during the campaign:
@@ -129,10 +130,10 @@ campaign_tweets
 ```
 :::
 
-## Text Mining
 
-### Case Study: Trump Tweets
 
+## Case Study: Trump Tweets
+#### Text Mining
 ::: fragment
 We are interested in what happened during the campaign:
 
@@ -155,10 +156,10 @@ campaign_tweets |>
 ```
 :::
 
-## Text Mining
 
-### Case Study: Trump Tweets
 
+## Case Study: Trump Tweets
+#### Content Analysis
 ::: fragment
 The tidytext package helps us convert free form text into a tidy table. In this package text is broken down into tokens and then tokens are analyzed. Here is a simple example:
 
@@ -181,9 +182,10 @@ example <- tibble(line = c(1, 2, 3, 4),
 ```
 :::
 
-## Text Mining
 
-### Case Study: Trump Tweets
+
+## Case Study: Trump Tweets
+#### Content Analysis
 
 ::: fragment
 What does "example" look like ?
@@ -199,9 +201,10 @@ example
 ```
 :::
 
-## Text Mining
 
-### Case Study: Trump Tweets
+
+## Case Study: Trump Tweets
+#### Content Analysis
 
 We will next break the lines down into words.
 
@@ -213,9 +216,10 @@ example |> unnest_tokens(word, text)
 ```
 :::
 
-## Text Mining
 
-### Case Study: Trump Tweets
+
+## Case Study: Trump Tweets
+#### Content Analysis
 
 ::: fragment
 Now let's look at an example from the tweets.
@@ -238,9 +242,10 @@ campaign_tweets[i,] |>
 ```
 :::
 
-## Text Mining
 
-### Case Study: Trump Tweets
+
+## Case Study: Trump Tweets
+#### Content Analysis
 
 ::: fragment
 Let's remove some garbage.
@@ -256,9 +261,10 @@ campaign_tweets[i,] |>
 ```
 :::
 
-## Text Mining
 
-### Case Study: Trump Tweets
+
+## Case Study: Trump Tweets
+#### Content Analysis
 
 ::: fragment
 Now we are ready to extract the words for all our tweets.
@@ -273,9 +279,10 @@ tweet_words
 ```
 :::
 
-## Text Mining
 
-### Case Study: Trump Tweets
+
+## Case Study: Trump Tweets
+#### String Splitting
 
 ::: fragment
 Let ' s look at the most common words .
@@ -295,9 +302,10 @@ tweet_words |>
 Not surprising . Totally uninformative .
 :::
 
-## Text Mining
 
-### Case Study: Trump Tweets
+
+## Case Study: Trump Tweets
+#### String Splitting
 
 ::: fragment
 `stop_words` has the most common words in the English language so we can ignore these.
@@ -309,9 +317,10 @@ stop_words
 ```
 :::
 
-## Text Mining {.scrollable}
 
-### Case Study: Trump Tweets
+## Case Study: Trump Tweets
+#### String Splitting {.scrollable}
+
 
 ::: fragment
 ::: {style="font-size: 0.75em"}
@@ -351,17 +360,15 @@ tweet_words |>
 ```
 :::
 
-## Text Mining {.scrollable}
 
-### Case Study: Trump Tweets
+## Case Study: Trump Tweets
+#### Content Analysis {.scrollable}
 
 ::: fragment
 ::: {style="font-size: 0.75em"}
-
-These are a lot more informative.
-But still if we look at the word list, there are uninformative words. For example dates. Also unwanted characters like `’` attached to a word.
-It was the first word in a quote. Let’s remove these.
+These are a lot more informative. But still if we look at the word list, there are uninformative words. For example dates. Also unwanted characters like `’` attached to a word. It was the first word in a quote. Let's remove these.
 :::
+
 ```{r}
 #| echo: true
 #| eval: true
@@ -375,12 +382,11 @@ tweet_words <- campaign_tweets |>
 ```
 :::
 
-
 ::: fragment
 ::: {style="font-size: 0.75em"}
-
-Now let’s compare the most used words in tweets from Android or iphone.
+Now let's compare the most used words in tweets from Android or iphone.
 :::
+
 ```{r}
 #| echo: true
 #| eval: true
@@ -391,26 +397,22 @@ android_vs_iphone <- tweet_words |>
   mutate(p_a = Android / sum(Android), p_i = iPhone / sum(iPhone),
          percent_diff = (p_a - p_i) / ((p_a + p_i)/2) * 100)
 ```
-
-
 :::
 
-## Text Mining {.scrollable}
 
-### Case Study: Trump Tweets
+
+## Case Study: Trump Tweets
+#### Content Analysis {.scrollable}
 
 ::: fragment
-
 For words appearing at least 100 times in total, here are the highest percent differences;
-
 :::
-::: fragment
-:::: {.columns}
 
+::: fragment
+::: columns
 ::: {.column width="47%"}
 ::: {style="font-size: 0.85em"}
 Android:
-
 
 ```{r}
 #| echo: true
@@ -421,11 +423,8 @@ android_vs_iphone |> filter(Android + iPhone >= 100) |>
 :::
 :::
 
-
-
 ::: {.column width="53%"}
 ::: {style="font-size: 0.85em"}
-
 iPhone:
 
 ```{r}
@@ -437,53 +436,47 @@ android_vs_iphone |> filter(Android + iPhone >= 100) |>
 ```
 :::
 :::
-::::
+:::
 :::
 
-## Text Mining {.scrollable}
 
-### Case Study: Trump Tweets
+
+## Case Study: Trump Tweets
+#### Sentiment Analysis {.scrollable}
 
 ::: fragment
 ::: {style="font-size: 0.75em"}
-
-Some words reflect negative or positive sentiments.
-
+First call the necessary libraries
 :::
 :::
 
 ::: fragment
-
-
 ```{r}
 #| echo: true
 #| eval: false
 install.packages('tidytext')
 install.packages('textdata')
 ```
-
-
 :::
 
 ::: fragment
-
-
 ```{r}
 #| echo: true
 #| eval: true
 library(tidytext)
 library(textdata)
 ```
-
-
 :::
 
-## Text Mining {.scrollable}
-### Case Study: Trump Tweets
+
+## Case Study: Trump Tweets
+#### Sentiment Analysis {.scrollable}
 
 ::: fragment
-:::: {.columns}
-
+::: {style="font-size: 0.75em"}
+Some words reflect negative or positive sentiments:
+:::
+::: columns
 ::: {.column width="50%"}
 ```{r}
 #| echo: true
@@ -499,15 +492,15 @@ get_sentiments("bing")
 get_sentiments("afinn")
 ```
 :::
-::::
+:::
 :::
 
-## Text Mining {.scrollable}
-### Case Study: Trump Tweets
+
+## Case Study: Trump Tweets
+#### Sentiment Analysis {.scrollable}
 
 ::: fragment
-:::: {.columns}
-
+::: columns
 ::: {.column width="50%"}
 ```{r}
 #| echo: true
@@ -523,36 +516,31 @@ get_sentiments("loughran") |> count(sentiment)
 get_sentiments("nrc") |> count(sentiment)
 ```
 :::
-::::
+:::
 :::
 
-## Text Mining {.scrollable}
 
-### Case Study: Trump Tweets
+## Case Study: Trump Tweets
+#### Sentiment Analysis {.scrollable}
 
 ::: fragment
-
 For our analysis, we are interested in exploring the different sentiments of each tweet so we will use the `nrc` lexicon:
-
 :::
-::: fragment
 
+::: fragment
 ```{r}
 #| echo: true
 #| eval: true
 nrc <- get_sentiments("nrc") |>
   select(word, sentiment)
 ```
-
 :::
-::: fragment
 
+::: fragment
 We will only keep words associated with a sentiment in the tweets.
-
 :::
 
 ::: fragment
-
 ```{r}
 #| echo: true
 #| eval: true
@@ -560,20 +548,17 @@ tweet_words |> inner_join(nrc, by = "word", relationship = "many-to-many") |>
   select(source, word, sentiment) |> 
   sample_n(5)
 ```
-
 :::
 
-## Text Mining {.scrollable}
 
-### Case Study: Trump Tweets
+## Case Study: Trump Tweets
+#### Sentiment Analysis {.scrollable}
 
 ::: fragment
-
 Then count them:
-
 :::
-::: fragment
 
+::: fragment
 ```{r}
 #| echo: true
 #| eval: true
@@ -584,21 +569,17 @@ sentiment_counts <- tweet_words |>
   mutate(sentiment = replace_na(sentiment, replace = "none"))
 sentiment_counts
 ```
-
 :::
 
-## Text Mining {.scrollable}
 
-### Case Study: Trump Tweets
+## Case Study: Trump Tweets
+#### Sentiment Analysis {.scrollable}
 
 ::: fragment
-
 Compare the different sentiments in the tweets from different sources.
-
 :::
 
 ::: fragment
-
 ```{r}
 #| echo: true
 #| eval: true
@@ -608,6 +589,4 @@ sentiment_counts |>
          percent_diff = (p_a - p_i) / ((p_a + p_i)/2) * 100) |>
   arrange(desc(percent_diff))
 ```
-
 :::
-

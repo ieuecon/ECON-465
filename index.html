@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="pres_files/libs/clipboard/clipboard.min.js"></script>
-<script src="pres_files/libs/quarto-html/tabby.min.js"></script>
-<script src="pres_files/libs/quarto-html/popper.min.js"></script>
-<script src="pres_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="pres_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="pres_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="pres_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="pres_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/tabby.min.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.3.353">
 
   <meta name="author" content="Ayla Oğuş Binatlı">
@@ -16,8 +16,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="pres_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="pres_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -96,14 +96,14 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="pres_files/libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="index_files/libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="styles.css">
-  <link href="pres_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="pres_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="pres_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="pres_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="pres_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
-  <link href="pres_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="index_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -407,8 +407,9 @@ Ayla Oğuş Binatlı
 
   <p class="date">2023-11-02</p>
 </section>
-<section id="packages" class="slide level2">
-<h2>Packages</h2>
+<section id="case-study-trump-tweets" class="slide level2">
+<h2>Case Study: Trump Tweets</h2>
+<h4 class="scrollable" id="packages">Packages</h4>
 <p>First things first: we need to load the necessary libraries</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1" data-code-line-numbers="2-5"><pre class="sourceCode numberSource r code-overflow-wrap number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">suppressPackageStartupMessages</span>({</span>
@@ -431,9 +432,9 @@ Ayla Oğuş Binatlı
 </div>
 </div>
 </section>
-<section id="text-mining" class="slide level2">
-<h2>Text Mining</h2>
-<h3 id="case-study-trump-tweets">Case Study: Trump Tweets</h3>
+<section id="case-study-trump-tweets-1" class="slide level2">
+<h2>Case Study: Trump Tweets</h2>
+<h4 id="text-mining">Text Mining</h4>
 <div class="fragment">
 <div style="font-size: 0.75em">
 <p>We are going to use the data frame called <code>trump_tweets</code>.</p>
@@ -472,11 +473,13 @@ Ayla Oğuş Binatlı
 </div>
 </div>
 </section>
-<section id="text-mining-1" class="slide level2">
-<h2>Text Mining</h2>
-<h3 id="case-study-trump-tweets-1">Case Study: Trump Tweets</h3>
+<section id="case-study-trump-tweets-2" class="slide level2">
+<h2>Case Study: Trump Tweets</h2>
+<h4 id="text-mining-1">Text Mining</h4>
+<div class="fragment">
 <p>How many tweets are there?</p>
 <p>Let’s look at tweets by source:</p>
+</div>
 <div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>trump_tweets <span class="sc">|&gt;</span> </span>
@@ -496,9 +499,9 @@ Ayla Oğuş Binatlı
 </div>
 </div>
 </section>
-<section id="text-mining-2" class="slide level2">
-<h2>Text Mining</h2>
-<h3 id="case-study-trump-tweets-2">Case Study: Trump Tweets</h3>
+<section id="case-study-trump-tweets-3" class="slide level2">
+<h2>Case Study: Trump Tweets</h2>
+<h4 id="text-mining-2">Text Mining</h4>
 <div class="fragment">
 <p>We are interested in what happened during the campaign:</p>
 <div class="cell">
@@ -534,9 +537,9 @@ Ayla Oğuş Binatlı
 </div>
 </div>
 </section>
-<section id="text-mining-3" class="slide level2">
-<h2>Text Mining</h2>
-<h3 id="case-study-trump-tweets-3">Case Study: Trump Tweets</h3>
+<section id="case-study-trump-tweets-4" class="slide level2">
+<h2>Case Study: Trump Tweets</h2>
+<h4 id="text-mining-3">Text Mining</h4>
 <div class="fragment">
 <p>We are interested in what happened during the campaign:</p>
 <div class="cell" data-layout-align="center">
@@ -555,17 +558,17 @@ Ayla Oğuş Binatlı
 
 </div>
 </section>
-<section id="text-mining-3-output" class="slide level2 output-location-slide"><h2>Text Mining</h2><div class="cell output-location-slide" data-layout-align="center">
+<section id="case-study-trump-tweets-4-output" class="slide level2 output-location-slide"><h2>Case Study: Trump Tweets</h2><div class="cell output-location-slide" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="pres_files/figure-revealjs/unnamed-chunk-6-1.png" width="960"></p>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-6-1.png" width="960"></p>
 </figure>
 </div>
 </div>
-</div></section><section id="text-mining-4" class="slide level2">
-<h2>Text Mining</h2>
-<h3 id="case-study-trump-tweets-4">Case Study: Trump Tweets</h3>
+</div></section><section id="case-study-trump-tweets-5" class="slide level2">
+<h2>Case Study: Trump Tweets</h2>
+<h4 id="content-analysis">Content Analysis</h4>
 <div class="fragment">
 <p>The tidytext package helps us convert free form text into a tidy table. In this package text is broken down into tokens and then tokens are analyzed. Here is a simple example:</p>
 <div class="cell">
@@ -588,9 +591,9 @@ Ayla Oğuş Binatlı
 </div>
 </div>
 </section>
-<section id="text-mining-5" class="slide level2">
-<h2>Text Mining</h2>
-<h3 id="case-study-trump-tweets-5">Case Study: Trump Tweets</h3>
+<section id="case-study-trump-tweets-6" class="slide level2">
+<h2>Case Study: Trump Tweets</h2>
+<h4 id="content-analysis-1">Content Analysis</h4>
 <div class="fragment">
 <p>What does “example” look like ?</p>
 <p>We make a table of words. Here the table is of lines of a poem.</p>
@@ -612,9 +615,9 @@ Ayla Oğuş Binatlı
 </div>
 </div>
 </section>
-<section id="text-mining-6" class="slide level2">
-<h2>Text Mining</h2>
-<h3 id="case-study-trump-tweets-6">Case Study: Trump Tweets</h3>
+<section id="case-study-trump-tweets-7" class="slide level2">
+<h2>Case Study: Trump Tweets</h2>
+<h4 id="content-analysis-2">Content Analysis</h4>
 <p>We will next break the lines down into words.</p>
 <div class="fragment">
 <div class="cell">
@@ -642,9 +645,9 @@ Ayla Oğuş Binatlı
 </div>
 </div>
 </section>
-<section id="text-mining-7" class="slide level2">
-<h2>Text Mining</h2>
-<h3 id="case-study-trump-tweets-7">Case Study: Trump Tweets</h3>
+<section id="case-study-trump-tweets-8" class="slide level2">
+<h2>Case Study: Trump Tweets</h2>
+<h4 id="content-analysis-3">Content Analysis</h4>
 <div class="fragment">
 <p>Now let’s look at an example from the tweets.</p>
 <div class="cell">
@@ -675,9 +678,9 @@ Davenport- this past winter. #MAGA https://t.co/A5IF0QHnic</code></pre>
 </div>
 </div>
 </section>
-<section id="text-mining-8" class="slide level2">
-<h2>Text Mining</h2>
-<h3 id="case-study-trump-tweets-8">Case Study: Trump Tweets</h3>
+<section id="case-study-trump-tweets-9" class="slide level2">
+<h2>Case Study: Trump Tweets</h2>
+<h4 id="content-analysis-4">Content Analysis</h4>
 <div class="fragment">
 <p>Let’s remove some garbage.</p>
 <div class="cell">
@@ -698,9 +701,9 @@ Davenport- this past winter. #MAGA https://t.co/A5IF0QHnic</code></pre>
 </div>
 </div>
 </section>
-<section id="text-mining-9" class="slide level2">
-<h2>Text Mining</h2>
-<h3 id="case-study-trump-tweets-9">Case Study: Trump Tweets</h3>
+<section id="case-study-trump-tweets-10" class="slide level2">
+<h2>Case Study: Trump Tweets</h2>
+<h4 id="content-analysis-5">Content Analysis</h4>
 <div class="fragment">
 <p>Now we are ready to extract the words for all our tweets.</p>
 <div class="cell">
@@ -731,9 +734,9 @@ Davenport- this past winter. #MAGA https://t.co/A5IF0QHnic</code></pre>
 </div>
 </div>
 </section>
-<section id="text-mining-10" class="slide level2">
-<h2>Text Mining</h2>
-<h3 id="case-study-trump-tweets-10">Case Study: Trump Tweets</h3>
+<section id="case-study-trump-tweets-11" class="slide level2">
+<h2>Case Study: Trump Tweets</h2>
+<h4 id="string-splitting">String Splitting</h4>
 <div class="fragment">
 <p>Let ’ s look at the most common words .</p>
 </div>
@@ -766,9 +769,9 @@ Davenport- this past winter. #MAGA https://t.co/A5IF0QHnic</code></pre>
 <p>Not surprising . Totally uninformative .</p>
 </div>
 </section>
-<section id="text-mining-11" class="slide level2">
-<h2>Text Mining</h2>
-<h3 id="case-study-trump-tweets-11">Case Study: Trump Tweets</h3>
+<section id="case-study-trump-tweets-12" class="slide level2">
+<h2>Case Study: Trump Tweets</h2>
+<h4 id="string-splitting-1">String Splitting</h4>
 <div class="fragment">
 <p><code>stop_words</code> has the most common words in the English language so we can ignore these.</p>
 <div class="cell">
@@ -794,9 +797,9 @@ Davenport- this past winter. #MAGA https://t.co/A5IF0QHnic</code></pre>
 </div>
 </div>
 </section>
-<section id="text-mining-12" class="slide level2 scrollable">
-<h2>Text Mining</h2>
-<h3 id="case-study-trump-tweets-12">Case Study: Trump Tweets</h3>
+<section id="case-study-trump-tweets-13" class="slide level2">
+<h2>Case Study: Trump Tweets</h2>
+<h4 class="scrollable" id="string-splitting-2">String Splitting</h4>
 <div class="fragment">
 <div style="font-size: 0.75em">
 <p>If we filter out rows representing stop words with <code>filter(!word %in% stop_words$word)</code>:</p>
@@ -845,9 +848,9 @@ Davenport- this past winter. #MAGA https://t.co/A5IF0QHnic</code></pre>
 </div>
 </div>
 </section>
-<section id="text-mining-13" class="slide level2 scrollable">
-<h2>Text Mining</h2>
-<h3 id="case-study-trump-tweets-13">Case Study: Trump Tweets</h3>
+<section id="case-study-trump-tweets-14" class="slide level2">
+<h2>Case Study: Trump Tweets</h2>
+<h4 class="scrollable" id="content-analysis-6">Content Analysis</h4>
 <div class="fragment">
 <div style="font-size: 0.75em">
 <p>These are a lot more informative. But still if we look at the word list, there are uninformative words. For example dates. Also unwanted characters like <code>’</code> attached to a word. It was the first word in a quote. Let’s remove these.</p>
@@ -880,9 +883,9 @@ Davenport- this past winter. #MAGA https://t.co/A5IF0QHnic</code></pre>
 </div>
 </div>
 </section>
-<section id="text-mining-14" class="slide level2 scrollable">
-<h2>Text Mining</h2>
-<h3 id="case-study-trump-tweets-14">Case Study: Trump Tweets</h3>
+<section id="case-study-trump-tweets-15" class="slide level2">
+<h2>Case Study: Trump Tweets</h2>
+<h4 class="scrollable" id="content-analysis-7">Content Analysis</h4>
 <div class="fragment">
 <p>For words appearing at least 100 times in total, here are the highest percent differences;</p>
 </div>
@@ -944,12 +947,12 @@ Davenport- this past winter. #MAGA https://t.co/A5IF0QHnic</code></pre>
 </div>
 </div>
 </section>
-<section id="text-mining-15" class="slide level2 scrollable">
-<h2>Text Mining</h2>
-<h3 id="case-study-trump-tweets-15">Case Study: Trump Tweets</h3>
+<section id="case-study-trump-tweets-16" class="slide level2">
+<h2>Case Study: Trump Tweets</h2>
+<h4 class="scrollable" id="sentiment-analysis">Sentiment Analysis</h4>
 <div class="fragment">
 <div style="font-size: 0.75em">
-<p>Some words reflect negative or positive sentiments.</p>
+<p>First call the necessary libraries</p>
 </div>
 </div>
 <div class="fragment">
@@ -971,10 +974,13 @@ Davenport- this past winter. #MAGA https://t.co/A5IF0QHnic</code></pre>
 </div>
 </div>
 </section>
-<section id="text-mining-16" class="slide level2 scrollable">
-<h2>Text Mining</h2>
-<h3 id="case-study-trump-tweets-16">Case Study: Trump Tweets</h3>
+<section id="case-study-trump-tweets-17" class="slide level2">
+<h2>Case Study: Trump Tweets</h2>
+<h4 class="scrollable" id="sentiment-analysis-1">Sentiment Analysis</h4>
 <div class="fragment">
+<div style="font-size: 0.75em">
+<p>Some words reflect negative or positive sentiments:</p>
+</div>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
@@ -1024,9 +1030,9 @@ Davenport- this past winter. #MAGA https://t.co/A5IF0QHnic</code></pre>
 </div>
 </div>
 </section>
-<section id="text-mining-17" class="slide level2 scrollable">
-<h2>Text Mining</h2>
-<h3 id="case-study-trump-tweets-17">Case Study: Trump Tweets</h3>
+<section id="case-study-trump-tweets-18" class="slide level2">
+<h2>Case Study: Trump Tweets</h2>
+<h4 class="scrollable" id="sentiment-analysis-2">Sentiment Analysis</h4>
 <div class="fragment">
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -1071,9 +1077,9 @@ Davenport- this past winter. #MAGA https://t.co/A5IF0QHnic</code></pre>
 </div>
 </div>
 </section>
-<section id="text-mining-18" class="slide level2 scrollable">
-<h2>Text Mining</h2>
-<h3 id="case-study-trump-tweets-18">Case Study: Trump Tweets</h3>
+<section id="case-study-trump-tweets-19" class="slide level2">
+<h2>Case Study: Trump Tweets</h2>
+<h4 class="scrollable" id="sentiment-analysis-3">Sentiment Analysis</h4>
 <div class="fragment">
 <p>For our analysis, we are interested in exploring the different sentiments of each tweet so we will use the <code>nrc</code> lexicon:</p>
 </div>
@@ -1098,20 +1104,20 @@ Davenport- this past winter. #MAGA https://t.co/A5IF0QHnic</code></pre>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 3
-  source  word         sentiment   
-  &lt;chr&gt;   &lt;chr&gt;        &lt;chr&gt;       
-1 iPhone  safe         trust       
-2 Android disappointed disgust     
-3 iPhone  forward      positive    
-4 iPhone  tomorrow     anticipation
-5 Android reporter     trust       </code></pre>
+  source  word    sentiment   
+  &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;       
+1 iPhone  time    anticipation
+2 iPhone  landed  positive    
+3 Android illegal anger       
+4 Android bad     fear        
+5 Android anchor  positive    </code></pre>
 </div>
 </div>
 </div>
 </section>
-<section id="text-mining-19" class="slide level2 scrollable">
-<h2>Text Mining</h2>
-<h3 id="case-study-trump-tweets-19">Case Study: Trump Tweets</h3>
+<section id="case-study-trump-tweets-20" class="slide level2">
+<h2>Case Study: Trump Tweets</h2>
+<h4 class="scrollable" id="sentiment-analysis-4">Sentiment Analysis</h4>
 <div class="fragment">
 <p>Then count them:</p>
 </div>
@@ -1144,9 +1150,9 @@ Davenport- this past winter. #MAGA https://t.co/A5IF0QHnic</code></pre>
 </div>
 </div>
 </section>
-<section id="text-mining-20" class="slide level2 scrollable">
-<h2>Text Mining</h2>
-<h3 id="case-study-trump-tweets-20">Case Study: Trump Tweets</h3>
+<section id="case-study-trump-tweets-21" class="slide level2">
+<h2>Case Study: Trump Tweets</h2>
+<h4 class="scrollable" id="sentiment-analysis-5">Sentiment Analysis</h4>
 <div class="fragment">
 <p>Compare the different sentiments in the tweets from different sources.</p>
 </div>
@@ -1185,20 +1191,20 @@ Davenport- this past winter. #MAGA https://t.co/A5IF0QHnic</code></pre>
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="pres_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="index_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="pres_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="pres_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="pres_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="pres_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="pres_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
-  <script src="pres_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="index_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="index_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="index_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="index_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="pres_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="pres_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="pres_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="pres_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="index_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="index_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="index_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="index_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
